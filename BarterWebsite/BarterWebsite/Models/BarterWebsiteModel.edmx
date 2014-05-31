@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BarterModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="BarterModelStoreContainer">
+          <EntitySet Name="Available" EntityType="BarterModel.Store.Available" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Categories" EntityType="BarterModel.Store.Categories" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="City" EntityType="BarterModel.Store.City" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CounterOfferForAvailable" EntityType="BarterModel.Store.CounterOfferForAvailable" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CounterOfferForNeed" EntityType="BarterModel.Store.CounterOfferForNeed" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Messages" EntityType="BarterModel.Store.Messages" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Needs" EntityType="BarterModel.Store.Needs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OfferForAvailable" EntityType="BarterModel.Store.OfferForAvailable" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OfferForNeed" EntityType="BarterModel.Store.OfferForNeed" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserProfile" EntityType="BarterModel.Store.UserProfile" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Available">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="User_Email_Avl" Type="nvarchar" MaxLength="50" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="ntext" />
+          <Property Name="Closed_Flag" Type="bit" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="nvarchar" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" Nullable="false" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="CounterOfferForAvailable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="counter_offer_user" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="description" Type="text" Nullable="false" />
+          <Property Name="created_at" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="accepted_flag" Type="bit" />
+        </EntityType>
+        <EntityType Name="CounterOfferForNeed">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Counter_Offer_User" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="text" Nullable="false" />
+          <Property Name="Created_at" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="Accepted_flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Messages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Sender_Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Destination_Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Message" Type="ntext" />
+          <Property Name="Time_Stamp" Type="timestamp" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Needs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="User_Email_Needs" Type="nvarchar" MaxLength="50" />
+          <Property Name="Category" Type="nvarchar" MaxLength="30" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="ntext" />
+          <Property Name="Accepted_Flag" Type="bit" />
+        </EntityType>
+        <EntityType Name="OfferForAvailable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CreatedAt" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="Accepted_Flag" Type="bit" Nullable="false" />
+          <Property Name="User_making_offer" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OfferForNeed">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Created_At" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="Accepted_Flag" Type="bit" Nullable="false" />
+          <Property Name="User_Making_Offer" Type="nchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LinkToEbay" Type="nvarchar(max)" />
+          <Property Name="LinkToAmazon" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="TwitterAccount" Type="nvarchar(max)" />
+          <Property Name="BlogURL" Type="nvarchar(max)" />
+          <Property Name="LinkedInUrl" Type="nvarchar(max)" />
+          <Property Name="CompanyUrl" Type="nvarchar(max)" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BarterModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Availables" EntityType="BarterModel.Available" />
+          <EntitySet Name="Categories" EntityType="BarterModel.Category" />
+          <EntitySet Name="Cities" EntityType="BarterModel.City" />
+          <EntitySet Name="CounterOfferForAvailables" EntityType="BarterModel.CounterOfferForAvailable" />
+          <EntitySet Name="CounterOfferForNeeds" EntityType="BarterModel.CounterOfferForNeed" />
+          <EntitySet Name="Messages" EntityType="BarterModel.Message" />
+          <EntitySet Name="Needs" EntityType="BarterModel.Need" />
+          <EntitySet Name="OfferForAvailables" EntityType="BarterModel.OfferForAvailable" />
+          <EntitySet Name="OfferForNeeds" EntityType="BarterModel.OfferForNeed" />
+          <EntitySet Name="UserProfiles" EntityType="BarterModel.UserProfile" />
+        </EntityContainer>
+        <EntityType Name="Available">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Email_Avl" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Category" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Closed_Flag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Category1" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="City1" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="2" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="CounterOfferForAvailable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="counter_offer_user" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="created_at" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" p1:StoreGeneratedPattern="Computed" />
+          <Property Name="accepted_flag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="CounterOfferForNeed">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Counter_Offer_User" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Created_at" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" p1:StoreGeneratedPattern="Computed" />
+          <Property Name="Accepted_flag" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Sender_Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Destination_Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Message1" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Time_Stamp" Type="Binary" MaxLength="8" FixedLength="true" p1:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Need">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Email_Needs" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Category" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Accepted_Flag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="OfferForAvailable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CreatedAt" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" p1:StoreGeneratedPattern="Computed" />
+          <Property Name="Accepted_Flag" Type="Boolean" Nullable="false" />
+          <Property Name="User_making_offer" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="OfferForNeed">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Created_At" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" p1:StoreGeneratedPattern="Computed" />
+          <Property Name="Accepted_Flag" Type="Boolean" Nullable="false" />
+          <Property Name="User_Making_Offer" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="LinkToEbay" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="LinkToAmazon" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="TwitterAccount" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="BlogURL" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="LinkedInUrl" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CompanyUrl" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BarterModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Availables">
+            <EntityTypeMapping TypeName="BarterModel.Available">
+              <MappingFragment StoreEntitySet="Available">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="User_Email_Avl" ColumnName="User_Email_Avl" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Closed_Flag" ColumnName="Closed_Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="BarterModel.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Category1" ColumnName="Category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="BarterModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="City1" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CounterOfferForAvailables">
+            <EntityTypeMapping TypeName="BarterModel.CounterOfferForAvailable">
+              <MappingFragment StoreEntitySet="CounterOfferForAvailable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="counter_offer_user" ColumnName="counter_offer_user" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="accepted_flag" ColumnName="accepted_flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CounterOfferForNeeds">
+            <EntityTypeMapping TypeName="BarterModel.CounterOfferForNeed">
+              <MappingFragment StoreEntitySet="CounterOfferForNeed">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Counter_Offer_User" ColumnName="Counter_Offer_User" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Created_at" ColumnName="Created_at" />
+                <ScalarProperty Name="Accepted_flag" ColumnName="Accepted_flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="BarterModel.Message">
+              <MappingFragment StoreEntitySet="Messages">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Sender_Email" ColumnName="Sender_Email" />
+                <ScalarProperty Name="Destination_Email" ColumnName="Destination_Email" />
+                <ScalarProperty Name="Message1" ColumnName="Message" />
+                <ScalarProperty Name="Time_Stamp" ColumnName="Time_Stamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Needs">
+            <EntityTypeMapping TypeName="BarterModel.Need">
+              <MappingFragment StoreEntitySet="Needs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="User_Email_Needs" ColumnName="User_Email_Needs" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Accepted_Flag" ColumnName="Accepted_Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OfferForAvailables">
+            <EntityTypeMapping TypeName="BarterModel.OfferForAvailable">
+              <MappingFragment StoreEntitySet="OfferForAvailable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="Accepted_Flag" ColumnName="Accepted_Flag" />
+                <ScalarProperty Name="User_making_offer" ColumnName="User_making_offer" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OfferForNeeds">
+            <EntityTypeMapping TypeName="BarterModel.OfferForNeed">
+              <MappingFragment StoreEntitySet="OfferForNeed">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Created_At" ColumnName="Created_At" />
+                <ScalarProperty Name="Accepted_Flag" ColumnName="Accepted_Flag" />
+                <ScalarProperty Name="User_Making_Offer" ColumnName="User_Making_Offer" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfiles">
+            <EntityTypeMapping TypeName="BarterModel.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LinkToEbay" ColumnName="LinkToEbay" />
+                <ScalarProperty Name="LinkToAmazon" ColumnName="LinkToAmazon" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TwitterAccount" ColumnName="TwitterAccount" />
+                <ScalarProperty Name="BlogURL" ColumnName="BlogURL" />
+                <ScalarProperty Name="LinkedInUrl" ColumnName="LinkedInUrl" />
+                <ScalarProperty Name="CompanyUrl" ColumnName="CompanyUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
