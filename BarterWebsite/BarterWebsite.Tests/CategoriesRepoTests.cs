@@ -8,6 +8,8 @@ namespace BarterWebsite.Tests
     public class CategoriesRepoTests
     {
 
+        // My cool comment!!! 
+
         [TestMethod]
         public void CategoriesRepo__AddRecord__DoesItWork()
         {
