@@ -1,0 +1,83 @@
+﻿@model BarterWebsite.Models.UserProfile
+
+@{
+    ViewBag.Title = "UserProfile for " + Model.Email;
+}
+
+<h2>User Profile for @Model.Email</h2>
+<br />
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        
+
+        @Html.HiddenFor(model => model.UserId)
+
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LinkToEbay)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LinkToEbay)
+            @Html.ValidationMessageFor(model => model.LinkToEbay)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LinkToAmazon)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LinkToAmazon)
+            @Html.ValidationMessageFor(model => model.LinkToAmazon)
+        </div>
+
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TwitterAccount)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TwitterAccount)
+            @Html.ValidationMessageFor(model => model.TwitterAccount)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BlogURL)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BlogURL)
+            @Html.ValidationMessageFor(model => model.BlogURL)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LinkedInUrl)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LinkedInUrl)
+            @Html.ValidationMessageFor(model => model.LinkedInUrl)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CompanyUrl)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CompanyUrl)
+            @Html.ValidationMessageFor(model => model.CompanyUrl)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
