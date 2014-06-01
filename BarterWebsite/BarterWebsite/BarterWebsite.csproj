@@ -198,6 +198,7 @@
     <Compile Include="Models\Available.cs">
       <DependentUpon>BarterWebsiteModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AvailableRepo.cs" />
     <Compile Include="Models\BarterWebsiteModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -217,18 +218,24 @@
     <Compile Include="Models\Category.cs">
       <DependentUpon>BarterWebsiteModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CitiesRepo.cs" />
     <Compile Include="Models\City.cs">
       <DependentUpon>BarterWebsiteModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OfferForAvailableRepo.cs" />
+    <Compile Include="Models\NeedsRepo.cs" />
+    <Compile Include="Models\CounterOfferForNeedsRepo.cs" />
     <Compile Include="Models\CounterOfferForAvailable.cs">
       <DependentUpon>BarterWebsiteModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CounterOfferForAvailableRepo.cs" />
     <Compile Include="Models\CounterOfferForNeed.cs">
       <DependentUpon>BarterWebsiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Message.cs">
       <DependentUpon>BarterWebsiteModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MessagesRepo.cs" />
     <Compile Include="Models\Need.cs">
       <DependentUpon>BarterWebsiteModel.tt</DependentUpon>
     </Compile>
@@ -238,6 +245,7 @@
     <Compile Include="Models\OfferForNeed.cs">
       <DependentUpon>BarterWebsiteModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OfferForNeedRepo.cs" />
     <Compile Include="Models\UserProfile.cs">
       <DependentUpon>BarterWebsiteModel.tt</DependentUpon>
     </Compile>
