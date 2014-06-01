@@ -386,6 +386,8 @@
     <Content Include="Views\MyProfile\Edit.cshtml" />
     <Content Include="Views\Trade\ShareGoodsAndServices.cshtml" />
     <Content Include="Views\Trade\MyGoodsAndServices.cshtml" />
+    <Content Include="Views\Trade\GoodsAndServicesYouNeed.cshtml" />
+    <Content Include="Views\Trade\GoodsAndServicesINeed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

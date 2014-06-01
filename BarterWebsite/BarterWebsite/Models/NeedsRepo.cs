@@ -47,5 +47,22 @@ namespace BarterWebsite.Models
             db.Entry(record).State = System.Data.EntityState.Modified;
             db.SaveChanges();
         }
+
+        internal List<Need> GetNeedsByEmail(string emailAddress)
+        {
+            if (emailAddress == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            if (string.IsNullOrEmpty(emailAddress))
+            {
+                throw new ArgumentException();
+            }
+
+            var db = new Entities();
+
+            return db.Needs.Where(a => a.User_Email_Needs == emailAddress).ToList();
+        }
     }
 }

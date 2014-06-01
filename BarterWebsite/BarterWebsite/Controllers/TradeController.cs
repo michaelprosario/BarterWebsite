@@ -9,9 +9,65 @@ using WebMatrix.WebData;
 namespace BarterWebsite.Controllers
 {
     [BarterWebsite.Filters.InitializeSimpleMembership]
+    [Authorize]
     public class TradeController : Controller
     {
+        public ActionResult GoodsAndServicesYouNeed()
+        {
+            var categories = new CategoriesRepo();
+            var cats = categories.GetAll();
 
+            ViewBag.Categories = cats;
+
+            var need = new BarterWebsite.Models.Need();
+            need.Accepted_Flag = false;
+            need.Category = "";
+            need.City = Constants.CITY;
+            need.Description = "";
+            need.User_Email_Needs = "";
+
+            return View(need);
+        }
+
+
+        [HttpPost]
+        public ActionResult GoodsAndServicesYouNeed(FormCollection collection)
+        {
+
+            var needs = new NeedsRepo();
+
+            // get my email address ....
+            UserProfile user = getUserProfile();
+
+            // get category ...
+            string category = collection["category"];
+            string description = collection["description"];
+
+            var need = new Need();
+
+            need.User_Email_Needs = user.Email;
+            need.Category = category;
+            need.Description = description;
+            need.Accepted_Flag = false;
+            need.City = Constants.CITY;
+
+            needs.AddRecord(need);
+
+            return RedirectToAction("GoodsAndServicesINeed");
+
+        }
+
+        public ActionResult GoodsAndServicesINeed()
+        {
+            UserProfile user = getUserProfile();
+            var needs = new NeedsRepo();
+            List<Need> list = needs.GetNeedsByEmail(user.Email);
+            return View(list);
+
+        }
+
+
+        
         public ActionResult MyGoodsAndServices()
         {
             UserProfile user = getUserProfile();
@@ -62,6 +118,21 @@ namespace BarterWebsite.Controllers
             availables.DeleteRecord(id);
 
             return RedirectToAction("MyGoodsAndServices");
+        }
+
+        public ActionResult DeleteNeed(int id)
+        {
+            var profile = getUserProfile();
+
+            var needs = new NeedsRepo();
+            var need = needs.GetRecord(id);
+
+            if (need.User_Email_Needs != profile.Email)
+                throw new ApplicationException("You can only delete records that belong to you.");
+
+            needs.DeleteRecord(id);
+
+            return RedirectToAction("GoodsAndServicesINeed");
         }
 
         [HttpPost]
