@@ -49,6 +49,23 @@ namespace BarterWebsite.Models
             db.SaveChanges();
         }
 
+        public List<Category> GetAll()
+        {
+            List<Category> list = new List<Category>();
+            using (var db = new Entities())
+            {
+                
+                foreach (var c in db.Categories)
+                {
+                    list.Add(c);
+                }
+            }
+
+            return list;
+        }
+
+
+
 
 
 

@@ -1,0 +1,56 @@
+﻿@model BarterWebsite.Models.Available
+
+@{
+    ViewBag.Title = "ShareGoodsAndServices";
+}
+
+<h2>Share My Goods And Services</h2>
+<br />
+
+
+
+
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Category)
+        </div>
+        <div class="editor-label">
+            @foreach (var c in ViewBag.Categories)
+            {
+            <input type="radio" name="category" value="@c.Category1" style="width:40px;">@c.Category1<br>
+            }
+        </div>
+        <br />
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            
+            @Html.TextAreaFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+        <div>
+            Note: Please provide a specific scope of service or goods.  Propose specific due dates as appropriate.
+        </div>
+
+
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -186,6 +186,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MyProfileController.cs" />
+    <Compile Include="Controllers\TradeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -223,6 +224,7 @@
     <Compile Include="Models\City.cs">
       <DependentUpon>BarterWebsiteModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Constants.cs" />
     <Compile Include="Models\OfferForAvailableRepo.cs" />
     <Compile Include="Models\NeedsRepo.cs" />
     <Compile Include="Models\CounterOfferForNeedsRepo.cs" />
@@ -382,6 +384,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\MyProfile\Edit.cshtml" />
+    <Content Include="Views\Trade\ShareGoodsAndServices.cshtml" />
+    <Content Include="Views\Trade\MyGoodsAndServices.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

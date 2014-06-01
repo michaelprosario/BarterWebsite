@@ -1,0 +1,43 @@
+﻿@model IEnumerable<BarterWebsite.Models.Available>
+
+@{
+    ViewBag.Title = "MyGoodsAndServices";
+}
+
+<h2>My Goods and Services</h2>
+
+<p>
+    @Html.ActionLink("Create New", "ShareGoodsAndServices")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Closed_Flag)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Closed_Flag)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

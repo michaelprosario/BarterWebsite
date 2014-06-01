@@ -49,5 +49,24 @@ namespace BarterWebsite.Models
             db.SaveChanges();
         }
 
+
+
+
+        internal List<Available> GetAvailablesByEmail(string emailAddress)
+        {
+            if (emailAddress == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            if (string.IsNullOrEmpty(emailAddress))
+            {
+                throw new ArgumentException();
+            }
+
+            var db = new Entities();
+
+            return db.Availables.Where(a => a.User_Email_Avl == emailAddress).ToList();
+        }
     }
 }
