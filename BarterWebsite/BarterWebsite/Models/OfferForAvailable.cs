@@ -19,5 +19,6 @@ namespace BarterWebsite.Models
         public bool Accepted_Flag { get; set; }
         public string User_making_offer { get; set; }
         public string Description { get; set; }
+        public int Available_Id { get; set; } 
     }
 }

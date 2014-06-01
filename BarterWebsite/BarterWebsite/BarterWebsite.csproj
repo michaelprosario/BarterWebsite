@@ -184,7 +184,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HavesListingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NeedsListingController.cs" />
     <Compile Include="Controllers\MyProfileController.cs" />
     <Compile Include="Controllers\TradeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -388,6 +390,9 @@
     <Content Include="Views\Trade\MyGoodsAndServices.cshtml" />
     <Content Include="Views\Trade\GoodsAndServicesYouNeed.cshtml" />
     <Content Include="Views\Trade\GoodsAndServicesINeed.cshtml" />
+    <Content Include="Views\NeedsListing\Index.cshtml" />
+    <Content Include="Views\HavesListing\Index.cshtml" />
+    <Content Include="Views\NeedsListing\MakeAnOffer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

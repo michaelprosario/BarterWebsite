@@ -68,5 +68,11 @@ namespace BarterWebsite.Models
 
             return db.Availables.Where(a => a.User_Email_Avl == emailAddress).ToList();
         }
+
+        internal List<Available> GetAll()
+        {
+            var db = new Entities();
+            return db.Availables.ToList();
+        }
     }
 }

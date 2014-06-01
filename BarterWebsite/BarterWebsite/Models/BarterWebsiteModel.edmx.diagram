@@ -13,8 +13,14 @@
         <EntityTypeShape EntityType="BarterModel.Message" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BarterModel.Need" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BarterModel.OfferForAvailable" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BarterModel.OfferForNeed" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BarterModel.OfferForNeed" Width="1.5" PointX="2.875" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="BarterModel.UserProfile" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BarterModel.C__MigrationHistory" Width="1.5" PointX="11.49509887373778" PointY="1.9106567212895755" />
+        <EntityTypeShape EntityType="BarterModel.webpages_Membership" Width="1.5" PointX="11.445685084651078" PointY="31.510811760793818" />
+        <EntityTypeShape EntityType="BarterModel.webpages_OAuthMembership" Width="1.5" PointX="2.0454581780570829" PointY="2.932331533605387" />
+        <EntityTypeShape EntityType="BarterModel.webpages_Roles" Width="1.5" PointX="10.43865813614738" PointY="29.723500742448262" />
+        <EntityTypeShape EntityType="BarterModel.webpages_UsersInRoles" Width="1.5" PointX="10.786259354458311" PointY="7.0870157364229742" />
+        <AssociationConnector Association="BarterModel.fk_RoleId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

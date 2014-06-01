@@ -7,13 +7,13 @@ namespace BarterWebsite.Models
 {
     public class OfferForNeedRepo
     {
-        public int AddRecord(CounterOfferForNeed record)
+        public int AddRecord(OfferForNeed record)
         {
          
 
             var db = new Entities();
 
-            db.CounterOfferForNeeds.Add(record);
+            db.OfferForNeeds.Add(record);
             db.SaveChanges();
 
             return record.Id;
@@ -48,6 +48,15 @@ namespace BarterWebsite.Models
             var db = new Entities();
             db.Entry(record).State = System.Data.EntityState.Modified;
             db.SaveChanges();
+        }
+
+        internal List<OfferForNeed> GetOffersForByNeedID(int needID)
+        {
+            var db = new Entities();
+
+            return db.OfferForNeeds.Where(a => a.Need_ID == needID).ToList(); 
+
+            //
         }
     }
 }

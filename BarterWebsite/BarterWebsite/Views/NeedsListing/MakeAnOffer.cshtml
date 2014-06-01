@@ -1,0 +1,117 @@
+﻿@model BarterWebsite.Models.Need
+
+@{
+    ViewBag.Title = "MakeAnOffer";
+}
+
+<h2>Make An Offer on this Need</h2>
+
+<fieldset>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.User_Email_Needs)
+    </div>
+    <div class="display-field">
+        <b>
+        @Html.DisplayFor(model => model.User_Email_Needs)</b>
+    </div>
+
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Category)
+    </div>
+    <div class="display-field">
+        <b>
+        @Html.DisplayFor(model => model.Category)
+            </b>
+    </div>
+
+
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        <b>
+        @Html.DisplayFor(model => model.Description)</b>
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Accepted_Flag)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Accepted_Flag)
+    </div>
+</fieldset>
+
+<p>
+    <h2>Current Offers</h2>
+
+        <table>
+            <tr>
+                <td>
+                    Description
+                </td>
+                <td>
+                    User
+                </td>
+                <td>
+                    Close
+                </td>
+
+            </tr>
+
+            
+
+    @foreach (var offer in ViewBag.Offers)
+    {
+
+            <tr>
+                <td>
+                @offer.Description
+                </td>
+                <td>
+                @offer.User_Making_Offer
+                </td>
+                <td>
+                @offer.Accepted_Flag
+                </td>
+            </tr>
+            
+        
+    }
+
+    </table>
+
+    <script>
+        function submitOffer() {
+            
+            var f = document.forms[0];
+            var txtOffer = document.getElementById("txtOffer");
+            
+            if (txtOffer.value == "") {
+                alert("Dude... Enter an offer!");
+            } else {
+                f.submit();
+            }
+
+        }
+
+    </script>
+        
+    
+        @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()             
+        <input type="hidden" id="hidNeedId" name="hidNeedId" value="@Model.Id"/> 
+        <h3>Make an offer</h3>
+        <textarea id="txtOffer" name="txtOffer"></textarea><br />
+        <input type="button" value="Make an Offer" onclick="submitOffer()"/> 
+        }
+
+    
+
+</p>
+<p>
+    
+    <a href="/">Back To Home</a>
+</p>
