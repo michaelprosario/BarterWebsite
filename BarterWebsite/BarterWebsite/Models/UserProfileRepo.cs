@@ -5,53 +5,44 @@ using System.Web;
 
 namespace BarterWebsite.Models
 {
-    public class CategoriesRepo
+    public class UserProfileRepo
     {
-
-        public int AddRecord(Category aCategory)
+        public int AddRecord(UserProfile r)
         {
             var db = new Entities();
-
-            db.Categories.Add(aCategory);
+            db.UserProfiles.Add(r);
             db.SaveChanges();
 
-            return aCategory.Id;
+            return r.UserId;
         }
 
         public bool RecordExists(int recordID)
         {
             var db = new Entities();
-            Category aCategory = db.Categories.Find(recordID);
-            return aCategory != null;
+            UserProfile r = db.UserProfiles.Find(recordID);
+            return r != null;
         }
 
-
-        public void DeleteRecord(int id)
+        public void DeleteRecord(int recordID)
         {
             var db = new Entities();
-            Category aRecord = db.Categories.Find(id);
-            db.Categories.Remove(aRecord);
+            var aRecord = db.UserProfiles.Find(recordID);
+            db.UserProfiles.Remove(aRecord);
             db.SaveChanges();
         }
 
-        public Category GetRecord(int id)
+        public UserProfile GetRecord(int recordID)
         {
             var db = new Entities();
-            Category aRecord = db.Categories.Find(id);
+            var aRecord = db.UserProfiles.Find(recordID);
             return aRecord;
-
         }
 
-        public void UpdateRecord(Category record)
+        public void UpdateRecord(UserProfile record)
         {
             var db = new Entities();
             db.Entry(record).State = System.Data.EntityState.Modified;
             db.SaveChanges();
         }
-
-
-
-
-
     }
 }

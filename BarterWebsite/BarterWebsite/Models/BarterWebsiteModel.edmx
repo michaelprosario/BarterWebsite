@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BarterModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BarterModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="BarterModelStoreContainer">
           <EntitySet Name="Available" EntityType="BarterModel.Store.Available" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Categories" EntityType="BarterModel.Store.Categories" store:Type="Tables" Schema="dbo" />
@@ -112,14 +112,13 @@
           <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
           <Property Name="LinkToEbay" Type="nvarchar(max)" />
           <Property Name="LinkToAmazon" Type="nvarchar(max)" />
-          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
           <Property Name="TwitterAccount" Type="nvarchar(max)" />
           <Property Name="BlogURL" Type="nvarchar(max)" />
           <Property Name="LinkedInUrl" Type="nvarchar(max)" />
           <Property Name="CompanyUrl" Type="nvarchar(max)" />
         </EntityType>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BarterModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -230,7 +229,7 @@
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="LinkToEbay" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="LinkToAmazon" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" Nullable="true" />
           <Property Name="TwitterAccount" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="BlogURL" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="LinkedInUrl" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />

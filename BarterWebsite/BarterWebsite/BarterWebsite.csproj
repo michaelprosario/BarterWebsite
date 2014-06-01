@@ -241,6 +241,7 @@
     <Compile Include="Models\UserProfile.cs">
       <DependentUpon>BarterWebsiteModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserProfileRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

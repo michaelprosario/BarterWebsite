@@ -80,6 +80,13 @@ namespace BarterWebsite.Controllers
                 try
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+                    int userID = WebSecurity.GetUserId(model.UserName);
+
+                    UserProfileRepo users = new UserProfileRepo();
+                    var user = users.GetRecord(userID);
+                    user.Email = model.Email;
+                    users.UpdateRecord(user);
+
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Home");
                 }

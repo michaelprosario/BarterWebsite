@@ -116,6 +116,7 @@
     <Compile Include="CategoriesRepoTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="UserProfileTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

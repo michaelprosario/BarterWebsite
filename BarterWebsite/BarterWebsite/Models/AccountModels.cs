@@ -24,14 +24,11 @@ namespace BarterWebsite.Models
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
-
-        [Required]
         public string UserName { get; set; }
         public string LinkToEbay { get; set; }
         public string LinkToAmazon { get; set; }
 
         [MaxLength(50)]
-        [Required]
         public string Email { get; set; }
         public string TwitterAccount { get; set; }
         public string BlogURL { get; set; }
@@ -99,6 +96,10 @@ namespace BarterWebsite.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string Email { get; set; } 
     }
 
     public class ExternalLogin
